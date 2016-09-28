@@ -16,7 +16,7 @@ function clickStart () {
 };
 
 function updateTime () {
-  h1.textContent= seconds;
+  h1.textContent = "Time elapsed: " + seconds;
   seconds+=1;
 };
 
