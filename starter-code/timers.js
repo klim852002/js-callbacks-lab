@@ -1,18 +1,19 @@
-// your code here:
 function init () {
 var resetBtn = document.querySelector('#reset')
 var startBtn = document.querySelector('#start')
 var pauseBtn = document.querySelector('#pause')
 var h1 = document.querySelector('#timer')
 var seconds = 0
-var counter = ""
+var timerID
 
 resetBtn.addEventListener('click', clickReset)
 startBtn.addEventListener('click', clickStart)
 pauseBtn.addEventListener('click', clickPause)
 
 function clickStart () {
-  counter = window.setInterval(updateTime, 1000)
+  if (seconds === 0) {
+  timerID = window.setInterval(updateTime, 1000);
+}
 };
 
 function updateTime () {
@@ -21,16 +22,14 @@ function updateTime () {
 };
 
 function clickPause () {
-    window.clearInterval(counter);
+  window.clearInterval(timerID);
   };
 
 function clickReset () {
-  window.clearInterval(counter);
+  clickPause();
   seconds = 0;
   h1.textContent = 'Stop Watch';
 };
-
-
 }
 
 init();
